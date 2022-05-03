@@ -1,17 +1,17 @@
 version: "3.7"
 services:
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    tty: true
-    ports:
-      - 8080:8080
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - ./mnt:/var/mnt
-    command: /var/app/run.sh
+  # app:
+  #   build:
+  #     context: ./app
+  #     dockerfile: Dockerfile
+  #   tty: true
+  #   ports:
+  #     - 8080:8080
+  #   environment:
+  #     TZ: Asia/Tokyo
+  #   volumes:
+  #     - ./mnt:/var/mnt
+  #   command: /var/app/run.sh
 
   redis:
     image: redis:7-alpine
