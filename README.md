@@ -1,5 +1,37 @@
 # template
 
+## Driver
+
+### Endpoint
+
+- [GET] /sensor/{mac}
+- [POST] /sensors
+- [GET] /plug/{mac}
+- [GET] /plugs
+- [POST] /plug/{mac}/{state}
+- [POST] /device/restart
+
+### object
+
+```json
+<Sensor>: {
+    "ok": <bool>,
+    "temp": <float>,
+    "humidity": <int>,
+    "battery": <int>,
+    "ts": <string>,
+    "mac": <string>
+}
+
+<Plug>: {
+    "ok": <bool>,
+    "state": <int>,
+    "mac": <string>,
+    "ip": <string>
+}
+
+```
+
 ## install ubuntu to docker and docker-compose
 
 ```bash
