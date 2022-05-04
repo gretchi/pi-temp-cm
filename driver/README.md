@@ -48,3 +48,10 @@ pyenv install 3.9.9
 pyenv virtualenv 3.9.9 admin-daemon
 pyenv local admin-daemon
 ```
+
+```sh
+# node npm
+sudo apt update && sudo apt install nodejs npm
+sudo npm install -g tplink-smarthome-api
+/usr/local/bin/tplink-smarthome-api search
+```
