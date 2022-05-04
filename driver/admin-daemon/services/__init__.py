@@ -12,6 +12,7 @@ class Services(object):
     def __init__(self):
         self._defined_job()
 
+
     def _defined_job(self):
         # load service
         temperature_collection_service_handle = ServiceHandler(TemperatureCollectionService)
@@ -19,7 +20,7 @@ class Services(object):
 
         # schedule
         schedule.every(10).seconds.do(temperature_collection_service_handle.start)
-        schedule.every(5).minute.do(helth_check_service_handle.start)
+        schedule.every(5).minutes.do(helth_check_service_handle.start)
 
 
     def run_pending(self):

@@ -1,3 +1,4 @@
+
 version: "3.7"
 services:
   # app:
@@ -19,3 +20,4 @@ services:
       - 6379:6379
     volumes:
       - ./redis/data:/data
+    mem_limit: 100m

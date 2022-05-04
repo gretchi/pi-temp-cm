@@ -6,11 +6,18 @@ import logging
 
 import services
 
+from redis_model import RedisModel
 
 logging.basicConfig(level=logging.DEBUG, format="<%(levelname)s> %(asctime)s %(threadName)s: %(message)s")
 
 
+def debug_port():
+    model = RedisModel()
+    model.set_sensor("ぴー", "10:27:F5:22:07:C9")
+    model.set_sensor("そら", "AC:84:C6:51:14:91")
+
 def main():
+    debug_port()
 
     services_handle = services.Services()
 

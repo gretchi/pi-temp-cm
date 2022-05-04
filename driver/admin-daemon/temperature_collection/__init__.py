@@ -2,6 +2,7 @@
 import logging
 import time
 
+
 from blesensor import Sensor
 
 class TemperatureCollection(object):
