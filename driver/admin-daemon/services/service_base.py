@@ -8,10 +8,7 @@ class ServiceBase(threading.Thread):
 
 
     def run(self):
-        while True:
-            try:
-                schedule.run_pending()
-            except Exception as e:
-                logging.error(e)
-
-            time.sleep(1)
+        try:
+            self.job()
+        except Exception as e:
+            logging.error(e)

@@ -13,4 +13,9 @@ class Services(object):
         temperature_collection_handle = TemperatureCollection()
 
         # schedule
-        schedule.every(10).seconds.do(temperature_collection_handle.job)
+        schedule.every(10).seconds.do(temperature_collection_handle.start)
+
+    def run(self):
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
