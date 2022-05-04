@@ -1,5 +1,6 @@
 
 import threading
+import logging
 import schedule
 
 class ServiceBase(threading.Thread):

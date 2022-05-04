@@ -4,14 +4,13 @@ import time
 
 from blesensor import Sensor
 
-from .service_base import ServiceBase
-
-class TemperatureCollection(ServiceBase):
+class TemperatureCollection(object):
     def __init__(self):
-        super().__init__()
+        pass
 
-    def job(self):
-        logging.info("Running!!")
+
+    def main(self):
+        logging.info("Job start")
 
         mac = "C4:43:D5:0D:4D:F4"
 

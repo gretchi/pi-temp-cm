@@ -5,7 +5,7 @@ import logging
 import schedule
 
 from .service_handler import ServiceHandler
-from .temperature_collection import TemperatureCollection
+from .temperature_collection_service import TemperatureCollectionService
 
 class Services(object):
     def __init__(self):
@@ -13,12 +13,10 @@ class Services(object):
 
     def _defined_job(self):
         # load service
-        temperature_collection_handle_1 = ServiceHandler(TemperatureCollection)
-        temperature_collection_handle_2 = ServiceHandler(TemperatureCollection)
+        temperature_collection_handle = ServiceHandler(TemperatureCollectionService)
 
         # schedule
-        schedule.every(10).seconds.do(temperature_collection_handle_1.start)
-        schedule.every(3).seconds.do(temperature_collection_handle_2.start)
+        schedule.every(10).seconds.do(temperature_collection_handle.start)
 
 
     def run_pending(self):
