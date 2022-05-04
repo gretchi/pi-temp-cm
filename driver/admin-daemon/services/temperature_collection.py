@@ -1,5 +1,6 @@
 
 import logging
+import time
 
 from blesensor import Sensor
 
@@ -11,5 +12,7 @@ class TemperatureCollection(ServiceBase):
 
     def job(self):
         logging.info("Running!!")
+
+        time.sleep(10)
 
         return

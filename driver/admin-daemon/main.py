@@ -7,7 +7,7 @@ import logging
 import services
 
 
-logging.basicConfig(level=logging.DEBUG, format="<%(levelname)s> %(asctime)s: %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="<%(levelname)s> %(asctime)s %(threadName)s: %(message)s")
 
 
 def main():
