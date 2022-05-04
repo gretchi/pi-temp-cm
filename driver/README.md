@@ -55,3 +55,10 @@ sudo apt update && sudo apt install nodejs npm
 sudo npm install -g tplink-smarthome-api
 /usr/local/bin/tplink-smarthome-api search
 ```
+
+
+## Login
+
+```
+docker-compose exec redis /usr/local/bin/redis-cli
+`
