@@ -1,5 +1,13 @@
 # Driver
 
+## debug
+
+```
+docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py
+```
+
+## install
+
 ```sh
 # authorized key
 mkdir .ssh

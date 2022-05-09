@@ -33,6 +33,13 @@ class MqClient(object):
             exchange="", routing_key="sensor_state", body=json.dumps(data)
         )
 
+    def consuming(self, queue, callback):
+        self.channel.queue_declare(queue=queue, durable=True)
+
+        self.channel.basic_consume(
+            queue=queue, on_message_callback=callback, auto_ack=True
+        )
+        self.channel.start_consuming()
 
 
     def close(self):

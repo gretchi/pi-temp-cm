@@ -18,11 +18,25 @@ services:
       context: ./driver/admin-daemon
       dockerfile: Dockerfile
     tty: true
-    # ports:
-    #   - 8080:8080
+
     environment:
       TZ: Asia/Tokyo
     env_file: ./driver/.develop.env
     volumes:
-      - ./driver/admin-daemon:/var/app
+      - ./driver/admin-daemon:/var/driver/admin-daemon
+    # command: python3 /var/app/main.py
+
+  cm-daemon:
+    build:
+      context: ./controller/cm-daemon
+      dockerfile: Dockerfile
+    tty: true
+
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./controller/cm-daemon:/var/controller/cm-daemon
+      - ./driver/admin-daemon:/var/driver/admin-daemon
+      # - ./controller/admin-daemon/helper:/var/app/helper
+      # - ./controller/admin-daemon/mq_client:/var/app/mq_client
     # command: python3 /var/app/main.py

@@ -1,5 +1,5 @@
 
-import logging
+import logging as sys_logging
 
 def init():
-    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s")
+    sys_logging.basicConfig(level=sys_logging.INFO, format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s")

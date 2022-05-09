@@ -1,35 +1,25 @@
-#!/home/gretel/.pyenv/versions/admin-daemon/bin/python
+#!/usr/bin/env python3
 
 import logging
 
 import helper
+from consumer import Consumer
 
 helper.logging.init()
 
 
 def main():
-    logging.info("Start admin-daemon")
+    logging.info("Start cm-daemon")
+    consumer = Consumer()
 
-    services_handle = services.Services()
+    consumer.start()
 
-    while True:
-        try:
-            services_handle.run_pending()
 
-        except Exception as e:
-            logging.error(e)
-
-        time.sleep(1)
-
-    logging.info("End admin-daemon")
+    logging.info("End cm-daemon")
 
     return 0
 
 
 
 if __name__ == "__main__":
-    if "root" != getpass.getuser():
-        logging.fatal("please run as root")
-        exit(1)
-
     exit(main())
