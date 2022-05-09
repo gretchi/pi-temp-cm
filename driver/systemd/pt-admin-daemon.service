@@ -2,10 +2,10 @@
 Description=pt-admin-daemon
 
 [Service]
-WorkingDirectory=/home/gretel/driver/admin-daemon
-ExecStart=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/admin-daemon/docker-compose.yml up
-ExecStop=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/admin-daemon/docker-compose.yml down
-ExecReload=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/admin-daemon/docker-compose.yml restart
+WorkingDirectory=/home/gretel/driver
+ExecStart=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/docker-compose.yml up
+ExecStop=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/docker-compose.yml down
+ExecReload=/usr/local/bin/docker-compose -p pt-admin-daemon -f /home/gretel/driver/docker-compose.yml restart
 User=root
 Group=root
 Restart=always

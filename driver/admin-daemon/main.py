@@ -8,17 +8,14 @@ import services
 from redis_model import RedisModel
 import helper
 
-logging.basicConfig(level=logging.DEBUG, format="<%(levelname)s> %(asctime)s %(threadName)s: %(message)s")
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s")
 
 
 def debug_port():
-
-
-    model = RedisModel()
-    model.set_sensor("ぴー", helper.net.insert_delimiter("10:27:F5:22:07:C9", "-"))
-    model.set_sensor("そら", helper.net.insert_delimiter("AC:84:C6:51:14:91", "-"))
+    pass
 
 def main():
+    logging.info("Start admin-daemon")
     debug_port()
 
     services_handle = services.Services()
@@ -31,6 +28,8 @@ def main():
             logging.error(e)
 
         time.sleep(1)
+
+    logging.info("End admin-daemon")
 
     return 0
 

@@ -14,7 +14,7 @@ class RedisModel(object):
         mac = helper.net.insert_delimiter(mac, "-")
 
 
-        self.conn.set(SENSORS_KEY, )
+        # self.conn.set(SENSORS_KEY, )
 
     def get_sensors(self):
         pass

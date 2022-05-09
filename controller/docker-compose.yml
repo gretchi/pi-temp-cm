@@ -1,14 +1,14 @@
 version: "3.7"
 services:
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    tty: true
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: mq
     ports:
-      - 8080:8080
-    environment:
-      TZ: Asia/Tokyo
+      - 15672:15672
+      - 5672:5672
     volumes:
-      - ./mnt:/var/mnt
-    command: /var/app/run.sh
+      - ./rabbitmq/home:/var/lib/rabbitmq
+      - ./rabbitmq/config:/etc/rabbitmq/conf.d
+    environment:
+      RABBITMQ_DEFAULT_USER: system
+      RABBITMQ_DEFAULT_PASS: system
