@@ -7,6 +7,7 @@ import random
 from blesensor import Sensor
 
 import helper
+from mq_client import MqClient
 
 
 DEVELOP = os.environ.get("DEVELOP")
@@ -19,8 +20,11 @@ class TemperatureCollection(object):
     def main(self):
         logging.info("Job start")
         mac = "C4:43:D5:0D:4D:F4"
+        self.mq = MqClient()
+
         self.bt_work(mac)
 
+        self.mq.close()
 
     def bt_work(self, mac):
         if DEVELOP == "1":
@@ -35,6 +39,7 @@ class TemperatureCollection(object):
             battery = sensor.get("BatteryVoltage")
 
         logging.info(f"mac: {mac}, temp: {temp}, humidity: {humidity}, battery: {battery}")
+        self.mq.publish_sensor_state(mac, temp, humidity, battery)
 
         time.sleep(10)
 

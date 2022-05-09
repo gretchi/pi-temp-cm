@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - ./controller/rabbitmq/home:/var/lib/rabbitmq
+      - ./controller/rabbitmq/config:/etc/rabbitmq/conf.d
+    environment:
+      RABBITMQ_DEFAULT_USER: system
+      RABBITMQ_DEFAULT_PASS: system
+
+  admin-daemon:
+    build:
+      context: ./driver/admin-daemon
+      dockerfile: Dockerfile
+    tty: true
+    # ports:
+    #   - 8080:8080
+    environment:
+      TZ: Asia/Tokyo
+    env_file: ./driver/.develop.env
+    volumes:
+      - ./driver/admin-daemon:/var/app
+    # command: python3 /var/app/main.py
