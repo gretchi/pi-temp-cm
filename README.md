@@ -32,6 +32,14 @@
 
 ```
 
+## MACアドレス形式
+
+DB格納時は `-` で区切る
+
+```plaintext
+XX-XX-XX-XX-XX-XX
+```
+
 ## install ubuntu to docker and docker-compose
 
 ```bash
