@@ -1,7 +1,6 @@
 #!/home/gretel/.pyenv/versions/admin-daemon/bin/python
 
-import time
-import getpass
+
 import logging
 
 import services
@@ -9,12 +8,8 @@ import services
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s")
 
 
-def debug_port():
-    pass
-
 def main():
     logging.info("Start admin-daemon")
-    debug_port()
 
     services_handle = services.Services()
 

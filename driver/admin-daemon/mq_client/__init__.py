@@ -18,6 +18,7 @@ class MqClient(object):
         )
         self.channel = self.connection.channel()
 
+
     def publish_sensor_state(self, mac, temp, humidity, battery):
         data = {
             "mac": mac,
