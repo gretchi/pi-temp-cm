@@ -1,11 +1,10 @@
 #!/home/gretel/.pyenv/versions/admin-daemon/bin/python
 
-
 import logging
 
-import services
+import helper
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s")
+helper.logging.init()
 
 
 def main():
