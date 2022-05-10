@@ -59,7 +59,10 @@ pyenv local admin-daemon
 
 ```sh
 # node npm
-sudo apt update && sudo apt install nodejs npm
+curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+sudo apt-get install -y nodejs
+
+# tplink-smarthome-api
 sudo npm install -g tplink-smarthome-api
 /usr/local/bin/tplink-smarthome-api search
 ```
