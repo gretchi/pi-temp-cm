@@ -27,7 +27,6 @@ for link_to_dir in `echo -e "${LINK_TO_1_PATH}\n${LINK_TO_2_PATH}"`; do
             fi
         fi
     done
-
 done
 
 
@@ -40,19 +39,12 @@ for line in $(ls "${LIB_PATH}"); do
     target_path="${LIB_PATH}/${line}"
 
     if [ -d ${target_path} ]; then
-        echo "cd "${LINK_TO_1_PATH}""
-        echo "ln -s "../../${LIB_PATH}/${line}" "${line}""
-        echo "cd "${SCRIPT_DIR}""
         cd "${LINK_TO_1_PATH}"
         ln -s "../../${LIB_PATH}/${line}" "${line}"
         cd "${SCRIPT_DIR}"
 
-        echo "cd "${LINK_TO_1_PATH}""
-        echo "ln -s "../../${LIB_PATH}/${line}" "${line}""
-        echo "cd "${SCRIPT_DIR}""
         cd "${LINK_TO_2_PATH}"
         ln -s "../../${LIB_PATH}/${line}" "${line}"
         cd "${SCRIPT_DIR}"
-
     fi
 done
