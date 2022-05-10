@@ -22,7 +22,7 @@ for link_to_dir in `echo -e "${LINK_TO_1_PATH}\n${LINK_TO_2_PATH}"`; do
         if [ -d ${target_path} ]; then
             if [ -L ${target_path} ]; then
                 # do
-                rmlink ${target_path}
+                unlink ${target_path}
             fi
         fi
     done
