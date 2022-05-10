@@ -24,6 +24,7 @@ services:
     env_file: ./driver/.develop.env
     volumes:
       - ./driver/admin-daemon:/var/driver/admin-daemon
+      - ./lib-common:/var/lib-common
     # command: python3 /var/app/main.py
 
   cm-daemon:
@@ -37,6 +38,4 @@ services:
     volumes:
       - ./controller/cm-daemon:/var/controller/cm-daemon
       - ./lib-common:/var/lib-common
-      # - ./controller/admin-daemon/helper:/var/app/helper
-      # - ./controller/admin-daemon/mq_client:/var/app/mq_client
     # command: python3 /var/app/main.py
