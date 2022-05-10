@@ -19,10 +19,11 @@ for link_to_dir in `echo -e "${LINK_TO_1_PATH}\n${LINK_TO_2_PATH}"`; do
         IFS=$DEFAULT_IFS
         target_path="${link_to_dir}/${line}"
 
-        if [ -d ${target_path} ]; then
-            if [ -L ${target_path} ]; then
+        if [ -d "${target_path}" ]; then
+            if [ -L "${target_path}" ]; then
                 # do
-                unlink ${target_path}
+                echo unlink "${target_path}"
+                unlink "${target_path}"
             fi
         fi
     done
@@ -39,11 +40,17 @@ for line in $(ls "${LIB_PATH}"); do
     target_path="${LIB_PATH}/${line}"
 
     if [ -d ${target_path} ]; then
-        cd ${LINK_TO_1_PATH}
+        echo "cd "${LINK_TO_1_PATH}""
+        echo "ln -s "../../${LIB_PATH}/${line}" "${line}""
+        echo "cd "${SCRIPT_DIR}""
+        cd "${LINK_TO_1_PATH}"
         ln -s "../../${LIB_PATH}/${line}" "${line}"
         cd "${SCRIPT_DIR}"
 
-        cd ${LINK_TO_2_PATH}
+        echo "cd "${LINK_TO_1_PATH}""
+        echo "ln -s "../../${LIB_PATH}/${line}" "${line}""
+        echo "cd "${SCRIPT_DIR}""
+        cd "${LINK_TO_2_PATH}"
         ln -s "../../${LIB_PATH}/${line}" "${line}"
         cd "${SCRIPT_DIR}"
 
