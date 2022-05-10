@@ -19,17 +19,22 @@
 ## ln
 
 ```sh
-cd controller
-ln -s ../lib-common/helper helper
-ln -s ../lib-common/service_base service_base
-ln -s ../lib-common/mq_client mq_client
-ln -s ../lib-common/consumer_base consumer_base
+cd controller/cm-daemon
+ln -s ../../lib-common/helper helper
+ln -s ../../lib-common/service_base service_base
+ln -s ../../lib-common/mq_client mq_client
+ln -s ../../lib-common/consumer_base consumer_base
 
-cd driver
-ln -s ../lib-common/helper helper
-ln -s ../lib-common/service_base service_base
-ln -s ../lib-common/mq_client mq_client
-ln -s ../lib-common/consumer_base consumer_base
+cd driver/admin-daemon
+ln -s ../../lib-common/helper helper
+ln -s ../../lib-common/service_base service_base
+ln -s ../../lib-common/mq_client mq_client
+ln -s ../../lib-common/consumer_base consumer_base
+
+unlink helper
+unlink service_base
+unlink mq_client
+unlink consumer_base
 ```
 
 ## Driver
