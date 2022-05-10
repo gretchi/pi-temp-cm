@@ -2,6 +2,8 @@
 import threading
 import logging
 
+from .service_handler import ServiceHandler
+
 class ServiceBase(threading.Thread):
     def __init__(self):
         super(ServiceBase, self).__init__()

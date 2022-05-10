@@ -4,25 +4,17 @@ import logging
 
 import pika
 
-from .consumer_base import ConsumerBase
-from mq_client import MqClient
+from consumer_base import ConsumerBase
 import helper
 
-
+QUEUE_NAME = "sensor_state"
 
 class SensorStateConsumer(ConsumerBase):
     def __init__(self):
         super().__init__()
 
-    def job(self):
-        mq = MqClient()
-        while True:
-            try:
-                mq.consuming("sensor_state", self.callback)
-            except Exception as e:
-                logging.error(e)
+        self.set_queue(QUEUE_NAME)
 
-        mq.close()
 
     def callback(self, ch, method, properties, body):
         print(f"Data received: {body}")
