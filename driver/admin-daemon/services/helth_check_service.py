@@ -2,7 +2,7 @@
 import logging
 import time
 
-from .service_base import ServiceBase
+from service_base import ServiceBase
 
 class HelthCheckService(ServiceBase):
     def __init__(self):

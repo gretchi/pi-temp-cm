@@ -4,7 +4,7 @@ import logging
 
 import schedule
 
-from .service_handler import ServiceHandler
+from service_base import ServiceHandler
 from .temperature_collection_service import TemperatureCollectionService
 from .helth_check_service import HelthCheckService
 
