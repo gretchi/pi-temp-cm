@@ -15,8 +15,7 @@ def main():
 
     consumer.start()
 
-    while True:
-        time.sleep(1)
+    consumer.join()
 
     logging.info("End cm-daemon")
 

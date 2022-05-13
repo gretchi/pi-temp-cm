@@ -16,17 +16,17 @@ class SensorStateConsumer(ConsumerBase):
 
 
     def callback(self, ch, method, properties, body):
-        # print(f"Data received: {body}")
-        sys.stdout.write(f"\033[32mData received: {body}\033[0m")
-        json_body = json.loads(body)
+        logging.info(f"Data received: {body}")
 
-        # mac = json_body.get("mac")
-        # temp = json_body.get("temp")
-        # humidity = json_body.get("humidity")
-        # battery = json_body.get("battery")
-        # timestamp = helper.dt.parse(json_body.get("timestamp"))
+        json_body = json.loads(body.decode("utf-8"))
 
-        # logging.info(mac, temp, humidity, battery, timestamp)
+        mac = json_body.get("mac")
+        temp = json_body.get("temp")
+        humidity = json_body.get("humidity")
+        battery = json_body.get("battery")
+        timestamp = helper.dt.parse(json_body.get("timestamp"))
+
+        logging.info(f"Decoded data: mac: {mac}, temp: {temp}, humidity: {humidity}, battery: {battery}, timestamp: {timestamp}")
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
         return

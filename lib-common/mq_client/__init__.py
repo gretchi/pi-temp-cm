@@ -37,7 +37,7 @@ class MqClient(object):
         self.channel.queue_declare(queue=queue, durable=True)
 
         self.channel.basic_consume(
-            queue=queue, on_message_callback=callback
+            on_message_callback=callback, queue=queue
         )
         self.channel.start_consuming()
 
