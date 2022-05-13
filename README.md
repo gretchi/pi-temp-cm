@@ -16,65 +16,13 @@
 - 4-きな: 0C:80:63:04:FD:0B
 - 5-ゆき: 10:27:F5:22:08:12
 
-## ln
-
-```sh
-cd controller/cm-daemon
-ln -s ../../lib-common/helper helper
-ln -s ../../lib-common/service_base service_base
-ln -s ../../lib-common/mq_client mq_client
-ln -s ../../lib-common/consumer_base consumer_base
-
-cd driver/admin-daemon
-ln -s ../../lib-common/helper helper
-ln -s ../../lib-common/service_base service_base
-ln -s ../../lib-common/mq_client mq_client
-ln -s ../../lib-common/consumer_base consumer_base
-
-unlink helper
-unlink service_base
-unlink mq_client
-unlink consumer_base
-```
-
-## Driver
-
-### Endpoint
-
-- [GET] /sensor/{mac}
-- [POST] /sensors
-- [GET] /plug/{mac}
-- [GET] /plugs
-- [POST] /plug/{mac}/{state}
-- [POST] /device/restart
-
-### object
-
-```json
-<Sensor>: {
-    "ok": <bool>,
-    "temp": <float>,
-    "humidity": <int>,
-    "battery": <int>,
-    "ts": <string>,
-    "mac": <string>
-}
-
-<Plug>: {
-    "ok": <bool>,
-    "state": <int>,
-    "mac": <string>,
-    "ip": <string>
-}
-
-```
 
 ## MACアドレス形式
 
-DB格納時は `-` で区切る
+DB格納時は `:` で区切る
 
 ```plaintext
-XX-XX-XX-XX-XX-XX
+XX:XX:XX:XX:XX:XX
 ```
 
 ## install ubuntu to docker and docker-compose
