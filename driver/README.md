@@ -3,7 +3,7 @@
 ## debug
 
 ```
-docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py
+cd /Users/gretel/Git/pi-temp-cm/driver && docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py && cd -
 ```
 
 ## install
@@ -66,10 +66,3 @@ sudo apt-get install -y nodejs
 sudo npm install -g tplink-smarthome-api
 /usr/local/bin/tplink-smarthome-api search
 ```
-
-
-## Login
-
-```
-docker-compose exec redis /usr/local/bin/redis-cli
-`

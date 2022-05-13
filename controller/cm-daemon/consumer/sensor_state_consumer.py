@@ -1,8 +1,7 @@
 
 import json
 import logging
-
-import pika
+import sys
 
 from consumer_base import ConsumerBase
 import helper
@@ -17,13 +16,17 @@ class SensorStateConsumer(ConsumerBase):
 
 
     def callback(self, ch, method, properties, body):
-        print(f"Data received: {body}")
+        # print(f"Data received: {body}")
+        sys.stdout.write(f"\033[32mData received: {body}\033[0m")
         json_body = json.loads(body)
 
-        mac = json_body.get("mac")
-        temp = json_body.get("temp")
-        humidity = json_body.get("humidity")
-        battery = json_body.get("battery")
-        timestamp = helper.dt.parse(json_body.get("timestamp"))
+        # mac = json_body.get("mac")
+        # temp = json_body.get("temp")
+        # humidity = json_body.get("humidity")
+        # battery = json_body.get("battery")
+        # timestamp = helper.dt.parse(json_body.get("timestamp"))
 
-        logging.info(mac, temp, humidity, battery, timestamp)
+        # logging.info(mac, temp, humidity, battery, timestamp)
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+
+        return

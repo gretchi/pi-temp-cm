@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import time
 import logging
 
 import helper
@@ -14,6 +15,8 @@ def main():
 
     consumer.start()
 
+    while True:
+        time.sleep(1)
 
     logging.info("End cm-daemon")
 

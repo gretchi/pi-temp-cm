@@ -1,6 +1,7 @@
 
 import threading
 import logging
+import time
 
 from mq_client import MqClient
 
@@ -20,13 +21,13 @@ class ConsumerBase(threading.Thread):
 
     def job(self):
         self.mq = MqClient()
-        while True:
-            try:
-                self.mq.consuming("", self.callback)
-            except Exception as e:
-                logging.error(e)
 
-        mq.close()
+        try:
+            self.mq.consuming(self._queue_name, self.callback)
+        except Exception as e:
+            logging.error(e)
+
+        self.mq.close()
 
     def set_queue(self, queue_name):
         self._queue_name = queue_name
