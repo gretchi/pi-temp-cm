@@ -3,7 +3,7 @@
 ## debug
 
 ```
-cd /Users/gretel/Git/pi-temp-cm/driver && docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py && cd -
+cd ~/Git/pi-temp-cm/driver && docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py && cd -
 ```
 
 ## install
