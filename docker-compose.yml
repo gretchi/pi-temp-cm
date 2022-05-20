@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRES_PASSWORD: system
       POSTGRES_USER: system
-      POSTGRES_DB: system
+      POSTGRES_DB: ptcmdb
       POSTGRES_HOST_AUTH_METHOD: trust
       TZ: "Asia/Tokyo"
 

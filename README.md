@@ -16,9 +16,14 @@ docker-compose exec alembic upgrade head
 docker-compose exec alembic revision -m "revision_name"
 ```
 
-```bash
-docker-compose exec
+### dev-run
 
+```bash
+# controller
+docker-compose exec cm-daemon python3 /var/controller/cm-daemon/main.py
+
+# driver
+docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py
 
 ```
 
