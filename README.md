@@ -10,10 +10,10 @@
 
 ```bash
 # マイグレーション
-docker-compose exec alembic upgrade head
+docker-compose exec cm-daemon alembic upgrade head
 
 # 新しいリビジョンを作る
-docker-compose exec alembic revision -m "revision_name"
+docker-compose exec cm-daemon alembic revision -m "revision_name"
 ```
 
 ### dev-run
@@ -24,9 +24,16 @@ docker-compose exec cm-daemon python3 /var/controller/cm-daemon/main.py
 
 # driver
 docker-compose exec admin-daemon python3 /var/driver/admin-daemon/main.py
-
 ```
 
+
+```bash
+# controller
+docker-compose exec cm-daemon pip install xxxxxxxx
+
+# driver
+docker-compose exec admin-daemon pip install xxxxxxxx
+```
 
 
 ## sensors
