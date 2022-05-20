@@ -1,4 +1,28 @@
-# template
+# Pi-temp-cm
+
+## 概要
+
+集中管理型
+
+## 開発
+
+### alembic
+
+```bash
+# マイグレーション
+docker-compose exec alembic upgrade head
+
+# 新しいリビジョンを作る
+docker-compose exec alembic revision -m "revision_name"
+```
+
+```bash
+docker-compose exec
+
+
+```
+
+
 
 ## sensors
 

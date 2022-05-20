@@ -19,6 +19,12 @@ depends_on = ${repr(depends_on)}
 def upgrade():
     ${upgrades if upgrades else "pass"}
 
+    conn = op.get_bind()
+    conn.execute("")
+
 
 def downgrade():
     ${downgrades if downgrades else "pass"}
+
+    conn = op.get_bind()
+    conn.execute("")
