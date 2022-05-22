@@ -8,12 +8,12 @@ import helper
 
 QUEUE_NAME = "sensor_state"
 
+
 class SensorStateConsumer(ConsumerBase):
     def __init__(self):
         super().__init__()
 
         self.set_queue(QUEUE_NAME)
-
 
     def callback(self, ch, method, properties, body):
         logging.info(f"Data received: {body}")
@@ -26,7 +26,10 @@ class SensorStateConsumer(ConsumerBase):
         battery = json_body.get("battery")
         timestamp = helper.dt.parse(json_body.get("timestamp"))
 
-        logging.info(f"Decoded data: mac: {mac}, temp: {temp}, humidity: {humidity}, battery: {battery}, timestamp: {timestamp}")
+        logging.info(
+            f"Decoded data: mac: {mac}, temp: {temp}, humidity: {humidity}, battery: {battery}, timestamp: {timestamp}")
         ch.basic_ack(delivery_tag=method.delivery_tag)
+
+        self.mq.publish("ack_sensor_state", {"ok": True})
 
         return

@@ -6,7 +6,6 @@ import schedule
 
 from service_base import ServiceHandler
 from .temperature_collection_trigger_service import TemperatureCollectionTriggerService
-from .helth_check_service import HelthCheckService
 
 class Services(object):
     def __init__(self):
