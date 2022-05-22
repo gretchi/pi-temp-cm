@@ -38,6 +38,7 @@ services:
       POSTGRES_PASSWORD: system
       POSTGRES_USER: system
       POSTGRES_DB: ptcmdb
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
       POSTGRES_HOST_AUTH_METHOD: trust
       TZ: "Asia/Tokyo"
 

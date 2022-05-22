@@ -15,11 +15,11 @@ class Services(object):
 
     def _defined_job(self):
         # load service
-        temperature_collection_service_handle = ServiceHandler(TemperatureCollectionService)
+        # temperature_collection_service_handle = ServiceHandler(TemperatureCollectionService)
         helth_check_service_handle = ServiceHandler(HelthCheckService)
 
         # schedule
-        schedule.every(10).seconds.do(temperature_collection_service_handle.start)
+        # schedule.every(10).seconds.do(temperature_collection_service_handle.start)
         schedule.every(5).minutes.do(helth_check_service_handle.start)
 
 

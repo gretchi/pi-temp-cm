@@ -33,6 +33,17 @@ class MqClient(object):
             exchange="", routing_key="sensor_state", body=json.dumps(data)
         )
 
+    def publish_sensor_request(self, mac):
+        data = {
+            "mac": mac,
+        }
+
+        self.channel.queue_declare(queue='sensor_request', durable=True)
+        self.channel.basic_publish(
+            exchange="", routing_key="sensor_request", body=json.dumps(data)
+        )
+
+
     def consuming(self, queue, callback):
         self.channel.queue_declare(queue=queue, durable=True)
 

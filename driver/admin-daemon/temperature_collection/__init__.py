@@ -2,6 +2,7 @@
 import os
 import logging
 import time
+import json
 import random
 
 from blesensor import Sensor
@@ -11,6 +12,7 @@ from mq_client import MqClient
 
 
 DEVELOP = os.environ.get("DEVELOP")
+QUEUE_NAME = "sensor_state"
 
 class TemperatureCollection(object):
     def __init__(self):
@@ -19,12 +21,21 @@ class TemperatureCollection(object):
 
     def main(self):
         logging.info("Job start")
-        mac = "C4:43:D5:0D:4D:F4"
         self.mq = MqClient()
+
+        self.mq.consuming("sensor_request", self.callback)
+
+
+        self.mq.close()
+
+    def callback(self, ch, method, properties, body):
+        json_body = json.loads(body.decode("utf-8"))
+        mac = json_body.get("mac")
 
         self.bt_work(mac)
 
-        self.mq.close()
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+
 
     def bt_work(self, mac):
         if DEVELOP == "1":

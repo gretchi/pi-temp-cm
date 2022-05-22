@@ -5,17 +5,16 @@ import getpass
 import logging
 
 import services
+from consumer import Consumer
 import helper
 
 helper.logging.init()
 
 
-def debug_port():
-    pass
-
 def main():
     logging.info("Start admin-daemon")
-    debug_port()
+    consumer = Consumer()
+    consumer.start()
 
     services_handle = services.Services()
 
@@ -27,6 +26,8 @@ def main():
             logging.error(e)
 
         time.sleep(1)
+
+    consumer.join()
 
     logging.info("End admin-daemon")
 
