@@ -16,6 +16,13 @@ docker-compose exec cm-daemon alembic upgrade head
 docker-compose exec cm-daemon alembic revision -m "revision_name"
 ```
 
+### DB破壊
+
+```bash
+docker-compose stop pgsql && docker-compose rm pgsql && docker-compose up -d pgsql
+docker-compose exec cm-daemon alembic upgrade head
+```
+
 ### dev-run
 
 ```bash

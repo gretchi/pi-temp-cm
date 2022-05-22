@@ -40,7 +40,9 @@ def upgrade():
     conn.execute(
         """CREATE TABLE node (
             id INT NOT NULL DEFAULT nextval('node_id_seq'),
-            mac VARCHAR(32) NOT NULL,
+            sensor_mac VARCHAR(32) NOT NULL,
+            plug_mac VARCHAR(32) NOT NULL,
+            plug_ip VARCHAR(32) DEFAULT NULL,
             location_name VARCHAR(64) NOT NULL,
             PRIMARY KEY (id));
     """

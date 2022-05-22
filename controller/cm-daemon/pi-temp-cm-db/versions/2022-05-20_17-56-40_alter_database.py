@@ -18,7 +18,7 @@ depends_on = None
 
 def upgrade():
     conn = op.get_bind()
-    conn.execute("ALTER DATABASE pitemp SET timezone TO 'Asia/Tokyo';")
+    conn.execute("ALTER DATABASE ptcmdb SET timezone TO 'Asia/Tokyo';")
     conn.execute("SELECT pg_reload_conf();")
 
 
