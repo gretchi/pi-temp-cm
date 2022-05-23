@@ -13,7 +13,6 @@ class TemperatureCollectionTriggerService(ServiceBase):
 
     def job(self):
         logging.info("Job start")
-        mac = "C4:43:D5:0D:4D:F4"
 
         self.mq = MqClient()
         self.model = Model()
