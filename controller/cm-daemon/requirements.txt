@@ -5,4 +5,5 @@ MarkupSafe==2.1.1
 pika==1.2.1
 psycopg2==2.9.3
 psycopg2-binary==2.9.3
-schedule==1.1.0SQLAlchemy==1.4.36
+schedule==1.1.0
+SQLAlchemy==1.4.36
